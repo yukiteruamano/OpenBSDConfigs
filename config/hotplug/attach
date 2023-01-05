@@ -1,0 +1,11 @@
+#!/bin/sh
+
+DEVCLASS=${1}
+DEVNAME=${2}
+LOGIN=yukiteru
+
+case ${DEVCLASS} in
+2)
+        /usr/local/libexec/hotplug-diskmount attach -u ${LOGIN} -m 700 ${DEVNAME}
+        ;;
+esac

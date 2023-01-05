@@ -1,0 +1,7 @@
+sndiod_flags="-es24le -frsnd/0 -mplay -splaying -mrec -Frsnd/1 -srecording"
+apmd_flags="-A"
+hotplugd_flags=""
+pkg_scripts=messagebus
+sshd_flags=NO
+vmd_flags=""
+xenodm_flags=""

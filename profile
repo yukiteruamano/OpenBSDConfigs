@@ -1,0 +1,14 @@
+# $OpenBSD: dot.profile,v 1.8 2022/08/10 07:40:37 tb Exp $
+#
+# sh/ksh initialization
+
+PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
+export PATH HOME TERM
+
+export LC_CTYPE=es_ES.UTF-8
+export LANG=es_ES.UTF-8
+
+# Fix audio problems and setup two cards for play/rec tasks
+#export AUDIODEVICE=snd/playing
+#export AUDIOPLAYDEVICE=snd/playing
+#export AUDIORECDEVICE=snd/recording
