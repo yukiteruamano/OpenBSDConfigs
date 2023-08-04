@@ -1,0 +1,31 @@
+# $OpenBSD: dot.login,v 1.6 2015/12/15 16:37:58 deraadt Exp $
+#
+# csh login file
+
+if ( ! $?TERMCAP ) then
+	if ( $?XTERM_VERSION ) then
+		tset -IQ '-munknown:?vt220' $TERM
+	else
+		tset -Q '-munknown:?vt220' $TERM
+	endif
+endif
+
+stty	newcrt crterase
+
+set	savehist=100
+set	ignoreeof
+
+setenv	EXINIT		'set ai sm noeb'
+
+# Personal configuration
+setenv EDITOR	'nvim'
+setenv PAGER	'less'
+setenv QT_QPA_PLATFORMTHEME 'qt5ct'
+setenv XDG_RUNTIME_DIR '/home/yukiteru/.local/run/yukiteru'
+setenv MOZ_ACCELERATED 1
+setenv MOZ_WEBRENDER 1
+setenv AUDIODEVICE 'snd/0'
+setenv AUDIOPLAYDEVICE 'snd/0'
+setenv AUDIORECDEVICE 'snd/0'
+
+if (-x /usr/games/fortune) /usr/games/fortune

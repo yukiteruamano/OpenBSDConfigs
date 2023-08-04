@@ -1,0 +1,19 @@
+# ENV for the X11 session
+export LANG=es_ES.UTF-8
+export EDITOR=nvim
+export PAGER=less
+export QT_QPA_PLATFORMTHEME=qt5ct
+export MOZ_WEBRENDER=1
+export MOZ_ACCELERATED=1
+export XDG_RUNTIME_DIR=$HOME/.local/run/yukiteru
+export AUDIODEVICE=snd/0
+export AUDIOPLAYDEVICE=snd/0
+export AUDIORECDEVICE=snd/0
+
+# Dbus session
+if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
+        eval `dbus-launch --sh-syntax --exit-with-x11`
+fi
+
+# Init i3 session
+exec /usr/local/bin/ck-launch-session /usr/local/bin/i3
