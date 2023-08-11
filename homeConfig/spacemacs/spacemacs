@@ -74,6 +74,13 @@ This function should only modify configuration layer settings."
                 typescript-fmt-tool 'prettier
                 typescript-linter 'eslint
                 typescript-import-tool 'import-js)
+      (html :variables
+                css-enable-lsp t
+                html-enable-lsp t
+                web-fmt-tool 'prettier)
+      (json :variables
+                json-fmt-tool 'prettier
+                json-backend 'lsp)
       (shell-scripts :variables 
                 shell-scripts-format-on-save t
                 shell-scripts-backend 'lsp)
@@ -92,8 +99,9 @@ This function should only modify configuration layer settings."
                 python-backend 'lsp
                 python-lsp-server 'pyright
                 python-test-runner 'nose
-                python-formatter 'yapf
+                python-formatter 'black
                 python-fill-column 99
+                python-format-on-save t
                 python-sort-imports-on-save t)
       (languagetool :variables
                 langtool-default-language "en-US"
@@ -119,6 +127,7 @@ This function should only modify configuration layer settings."
                 auto-completion-enable-help-tooltip t
                 auto-completion-enable-snippets-in-popup t)
       lsp
+      dap
       meson
       syntax-checking
       version-control
@@ -145,7 +154,6 @@ This function should only modify configuration layer settings."
       unicode-fonts
       emoji
       treemacs)
-
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
@@ -664,6 +672,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
   ;; Support for US and ES dictionaries
   (with-eval-after-load "ispell"
     (setq ispell-program-name "aspell")
@@ -672,8 +681,6 @@ before packages are loaded."
     (ispell-set-spellchecker-params)
     (setq ispell-dictionary "en_US"))
 
-  ;; Setting up personal path
-  (add-to-list 'exec-path "/home/yukiteru/.local/bin" t)
   (setq python-shell-interpreter "/usr/local/bin/python3")
 )
 
