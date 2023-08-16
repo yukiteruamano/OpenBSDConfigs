@@ -45,9 +45,6 @@ This function should only modify configuration layer settings."
       better-defaults
       (spell-checking :variables 
                 enable-flyspell-auto-completion t)
-      (colors :variables 
-                colors-colorize-identifiers 'all)
-      themes-megapack
       ;; ----------------------------------------------------------------
       ;; Language support 
       ;; ----------------------------------------------------------------
@@ -56,6 +53,7 @@ This function should only modify configuration layer settings."
       (c-c++ :variables
                 c-c++-backend 'lsp-clangd
                 c-c++-dap-adapters 'dap-lldb
+                c-c++-lsp-enable-semantic-highlight 'rainbow
                 c-c++-default-mode-for-headers 'c++-mode
                 c-c++-enable-organize-includes-on-save t
                 c-c++-enable-auto-newline t
@@ -64,23 +62,23 @@ This function should only modify configuration layer settings."
                 javascript-backend 'lsp
                 javascript-lsp-linter nil
                 javascript-repl 'nodejs
-                javascript-fmt-tool 'prettier
+                javascript-fmt-tool 'web-beautify
                 javascript-linter 'eslint
                 javascript-import-tool 'import-js)
       (typescript :variables
                 typescript-backend 'lsp
                 typescript-lsp-linter nil
-                typescript-repl 'nodejs
                 typescript-fmt-tool 'prettier
                 typescript-linter 'eslint
                 typescript-import-tool 'import-js)
       (html :variables
                 css-enable-lsp t
                 html-enable-lsp t
-                web-fmt-tool 'prettier)
+                web-fmt-tool 'web-beautify)
       (json :variables
-                json-fmt-tool 'prettier
-                json-backend 'lsp)
+                json-backend 'lsp
+                json-fmt-tool 'web-beautify
+                json-fmt-on-save t)
       (shell-scripts :variables 
                 shell-scripts-format-on-save t
                 shell-scripts-backend 'lsp)
@@ -96,8 +94,9 @@ This function should only modify configuration layer settings."
                 lua-lsp-server 'lua-lsp
                 lsp-clients-luarocks-bin-dir "~/.luarocks/bin/")
       (python :variables 
-                python-backend 'lsp
-                python-lsp-server 'pyright
+                python-backend 'anaconda
+                ;;python-backend 'lsp
+                ;;python-lsp-server 'pyright
                 python-test-runner 'nose
                 python-formatter 'black
                 python-fill-column 99
@@ -114,6 +113,7 @@ This function should only modify configuration layer settings."
       ;; ----------------------------------------------------------------
       ;; Tools for dev
       ;; ----------------------------------------------------------------
+      semantic
       (dash :variables 
                 dash-autoload-common-docsets nil
                 dash-docs-docset-newpath "~/.local/share/Zeal/Zeal/docsets")
@@ -131,10 +131,16 @@ This function should only modify configuration layer settings."
       meson
       syntax-checking
       version-control
+      web-beautify
       prettier
       import-js
       pandoc
       node
+      tern
+      tide
+      sphinx
+      (docker :variables 
+                docker-dockerfile-backend 'lsp)
       (cmake :variables
                 cmake-enable-cmake-ide-support t
                 cmake-backend 'lsp)
@@ -148,6 +154,9 @@ This function should only modify configuration layer settings."
       ;; ----------------------------------------------------------------
       ;; GUI
       ;; ----------------------------------------------------------------
+      (colors :variables 
+                colors-colorize-identifiers 'all)
+      themes-megapack
       theming
       multiple-cursors
       tabs
