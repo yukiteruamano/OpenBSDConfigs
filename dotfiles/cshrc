@@ -13,7 +13,7 @@ alias ll	ls -lsA
 alias tset	'set noglob histchars=""; eval `\tset -s \!*`; unset noglob histchars'
 alias z		suspend
 
-set path = (~/bin /bin /sbin /usr/{bin,sbin,X11R6/bin,local/bin,local/sbin})
+set path = (~/.local/bin ~/bin /bin /sbin /usr/{bin,sbin,X11R6/bin,local/bin,local/sbin})
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
@@ -31,8 +31,9 @@ if ($?prompt) then
 	umask 22
 endif
 
-setenv	EDITOR	nvim
-setenv	PAGER	less
+# Personal configs
+setenv EDITOR	'vim'
+setenv PAGER	'less'
 
 # Personal exports
 setenv QT_QPA_PLATFORMTHEME 'qt5ct'
@@ -42,3 +43,8 @@ setenv MOZ_WEBRENDER 1
 setenv AUDIODEVICE 'snd/0'
 setenv AUDIOPLAYDEVICE 'snd/0'
 setenv AUDIORECDEVICE 'snd/0'
+
+# Language setting for user
+setenv LANG 'es_ES.UTF-8'
+setenv CHARSET 'UTF-8'
+

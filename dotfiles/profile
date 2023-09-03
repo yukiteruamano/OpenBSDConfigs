@@ -2,21 +2,24 @@
 #
 # sh/ksh initialization
 
-PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
+PATH=$HOME/.local/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 export PATH HOME TERM
 
 # Personal configs
 
-EDITOR=nvim;   					export EDITOR
-PAGER=less;  					export PAGER
-QT_QPA_PLATFORMTHEME=qt5ct;			export QT_QPA_PLATFORMTHEME
-MOZ_WEBRENDER=1;				export MOZ_WEBRENDER
-MOZ_ACCELERATED=1;				export MOZ_ACCELERATED
-XDG_RUNTIME_DIR=$HOME/.local/run/yukiteru;	export XDG_RUNTIME_DIR
-AUDIODEVICE=snd/0				export AUDIODEVICE
-AUDIOPLAYDEVICE=snd/0				export AUDIOPLAYDEVICE
-AUDIORECDEVICE=snd/0				export AUDIORECDEVICE
+EDITOR=vim;                                       export EDITOR
+PAGER=less;                                       export PAGER
+
+# Personal exports
+QT_QPA_PLATFORMTHEME=qt5ct;                       export QT_QPA_PLATFORMTHEME
+MOZ_WEBRENDER=1;                                  export MOZ_WEBRENDER
+MOZ_ACCELERATED=1;                                export MOZ_ACCELERATED
+XDG_RUNTIME_DIR=$HOME/.local/run/yukiteru;        export XDG_RUNTIME_DIR
+AUDIODEVICE=snd/0;                                export AUDIODEVICE
+AUDIOPLAYDEVICE=snd/0;                            export AUDIOPLAYDEVICE
+AUDIORECDEVICE=snd/0;                             export AUDIORECDEVICE
 
 # Language setting for user
-LANG=es_ES.UTF-8;	export LANG
-CHARSET=UTF-8;		export CHARSET
+LANG=es_ES.UTF-8;	                                export LANG
+CHARSET=UTF-8;                                    export CHARSET
+

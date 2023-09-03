@@ -51,12 +51,12 @@ PS1="\u@\h:\w \\$ "
 # CDPATH=:$HOME
 
 # Personal exports
-EDITOR=nvim;   					export EDITOR
-PAGER=less;  					export PAGER
-QT_QPA_PLATFORMTHEME=qt5ct;			export QT_QPA_PLATFORMTHEME
-XDG_RUNTIME_DIR=$HOME/.local/run/yukiteru;	export XDG_RUNTIME_DIR
-MOZ_WEBRENDER=1;				export MOZ_WEBRENDER
-MOZ_ACCELERATED=1;				export MOZ_ACCELERATED
-AUDIODEVICE=snd/0;				export AUDIODEVICE
-AUDIOPLAYDEVICE=snd/0;				export AUDIOPLAYDEVICE
-AUDIORECDEVICE=snd/0;				export AUDIORECDEVICE
+EDITOR=vim;					  export EDITOR
+PAGER=less;                                       export PAGER
+QT_QPA_PLATFORMTHEME=qt5ct;                       export QT_QPA_PLATFORMTHEME
+XDG_RUNTIME_DIR=$HOME/.local/run/yukiteru;        export XDG_RUNTIME_DIR
+MOZ_WEBRENDER=1;                                  export MOZ_WEBRENDER
+MOZ_ACCELERATED=1;                                export MOZ_ACCELERATED
+AUDIODEVICE=snd/0;                                export AUDIODEVICE
+AUDIOPLAYDEVICE=snd/0;                            export AUDIOPLAYDEVICE
+AUDIORECDEVICE=snd/0;                             export AUDIORECDEVICE

@@ -1,10 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 
+# CVS Root
+export CVSROOT=anoncvs@anoncvs.spacehopper.org:/cvs
+
 # GOPATH
 export GOPATH=$HOME/.golang
 
 # Rust 
-export RUST_SRC_PATH="$HOME/.cache/rust-src/library"
+export RUST_SRC_PATH="/usr/local/lib/rustlib/src/rust/library"
 
 # PATH from system
 export PATH=$HOME/.luarocks/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.config/emacs/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -87,7 +90,6 @@ ZSH_TMUX_CONFIG=$HOME/.config/tmux/tmux.conf
 # Cargamos todo oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-
 #####################################################################
 # Personal configs
 #####################################################################
@@ -99,16 +101,31 @@ export LANG=es_ES.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # Exports personales
-export EDITOR="nvim" 
+export EDITOR="vim" 
 export QT_QPA_PLATFORMTHEME="qt5ct" 
 export XDG_RUNTIME_DIR="$HOME/.local/run/yukiteru"
 export MOZ_ACCELERATED=1
 export MOZ_WEBRENDER=1
 
+# GPG
+export GPG_TTY=`tty`
+
 # Audio 
 export AUDIODEVICE=snd/0
 export AUDIOPLAYDEVICE=snd/0
 export AUDIORECDEVICE=snd/0
+
+# PIPENV
+export PIPENV_VENV_IN_PROJECT=1
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+
+# FZF
+autoload _fzf_key_bindings _fzf_completion
+_fzf_key_bindings
+_fzf_completion
+
+# Direnv
+eval "$(direnv hook zsh)"
 
 # Keychains
 keychain ~/.ssh/id_rsa
@@ -123,8 +140,8 @@ keychain ~/.ssh/id_rsa
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-salias log-firewall="doas tcpdump -nettt -i pflog0"
-alias grabar-pantalla="ffscreengrab sndio snd/0 30 libx264 23 veryfast"
+# Update CVS for ports and src
+alias upcvs="cvs -q up -Pd -A"
 
 # Clean PATH duplication
 typeset -U path

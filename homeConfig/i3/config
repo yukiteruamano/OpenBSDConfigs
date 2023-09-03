@@ -131,7 +131,6 @@ bindsym $mod+Return exec "alacritty"
 bindsym $mod+Shift+t exec "thunar"
 bindsym $mod+Shift+F6 exec "firefox -P yukiteru"
 bindsym $mod+Shift+F7 exec "thunderbird"
-bindsym $mod+Shift+F8 exec "firefox -P bit2me"
 bindsym $mod+Shift+g exec "gimp"
 bindsym $mod+Shift+w exec "alacritty -e weechat"
 bindsym $mod+Shift+f exec "flameshot"
@@ -224,33 +223,6 @@ client.urgent            $peach    $base $peach $overlay0  $blue
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
-
-bar {
-  status_command i3status -c $HOME/.config/i3/i3status.conf  | $HOME/.config/i3/scripts/mpd.sh
-  position          top
-  workspace_buttons yes
-  font pango:Fira Mono 8
-
-  colors {
-    background $base
-    statusline $text
-    separator  $mauve
-
-    #focused_workspace  #4C7899 #5493DD #FFFFFF
-    #active_workspace   #555555 #5493DD #FFFFFF
-    #inactive_workspace #555555 #4C7BB2 #333333
-    #urgent_workspace   #555555 #900000 #FFFFFF
-    #binding_mode       #555555 #900000 #FFFFFF
-
-    focused_workspace  $blue $base $text
-    active_workspace   $blue $base $text 
-    inactive_workspace $mauve $base $text 
-    urgent_workspace   $mauve $surface0 $text
-    binding_mode       $blue $base $text
-
-  }
-}
-
 ## Autostart applicatons ##
 
 # Compton
@@ -258,8 +230,8 @@ exec --no-startup-id "picom --config $HOME/.config/picom/config"
 
 # Let's get our wallpaper.
 # You can run nitrogen from the console and set it up, afterwards use "--restore" to use it in i3.
-exec --no-startup-id "feh --bg-fill --randomize /home/yukiteru/DATA/PersonalSync/Wallpapers"
-#exec --no-startup-id "nitrogen --restore"
+#exec --no-startup-id "feh --bg-fill --randomize /home/yukiteru/DATA/PersonalSync/Wallpapers"
+exec --no-startup-id "nitrogen --restore"
 
 # MPD Music
 exec --no-startup-id "mpd $HOME/.config/mpd/mpd.conf"
@@ -267,7 +239,7 @@ exec --no-startup-id "mpd $HOME/.config/mpd/mpd.conf"
 # Unclutter
 exec --no-startup-id "unclutter -root"
 
-# Unclutter
+# Dunst
 exec --no-startup-id "dunst -conf $HOME/.config/dunst/dunstrc"
 
 # Numlockx
@@ -278,3 +250,9 @@ exec --no-startup-id "setxkbmap -layout us -variant intl"
 
 # Syncthing
 exec --no-startup-id "syncthing --no-browser"
+
+# Polybar
+exec --no-startup-id "bash $HOME/.config/polybar/launch.sh"
+
+# Parcellite
+exec --no-startup-id "parcellite"

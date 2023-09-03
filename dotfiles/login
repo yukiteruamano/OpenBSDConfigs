@@ -18,7 +18,7 @@ set	ignoreeof
 setenv	EXINIT		'set ai sm noeb'
 
 # Personal configuration
-setenv EDITOR	'nvim'
+setenv EDITOR	'vim'
 setenv PAGER	'less'
 setenv QT_QPA_PLATFORMTHEME 'qt5ct'
 setenv XDG_RUNTIME_DIR '/home/yukiteru/.local/run/yukiteru'

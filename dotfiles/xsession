@@ -1,6 +1,6 @@
 # ENV for the X11 session
 export LANG=es_ES.UTF-8
-export EDITOR=nvim
+export EDITOR=vim
 export PAGER=less
 export QT_QPA_PLATFORMTHEME=qt5ct
 export MOZ_WEBRENDER=1
