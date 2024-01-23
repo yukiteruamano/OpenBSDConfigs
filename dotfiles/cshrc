@@ -47,4 +47,3 @@ setenv AUDIORECDEVICE 'snd/0'
 # Language setting for user
 setenv LANG 'es_ES.UTF-8'
 setenv CHARSET 'UTF-8'
-

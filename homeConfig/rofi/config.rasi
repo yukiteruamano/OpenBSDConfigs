@@ -15,7 +15,7 @@ configuration {
 	scroll-method: 0;
 	normalize-match: true;
 	show-icons: true;
-	icon-theme: "Flat-Remix-Orange-Dark";
+	icon-theme: "ePapirus-Dark";
 /*	cache-dir: ;*/
 	steal-focus: false;
 /*	dpi: -1;*/
@@ -78,7 +78,7 @@ configuration {
 
 	/*---------- Misc setting ----------*/
 	terminal: "rofi-sensible-terminal";
-	font: "Fira Mono 12";
+	font: "Noto Mono 12";
 	sort: false;
 	threads: 0;
 	click-to-exit: true;

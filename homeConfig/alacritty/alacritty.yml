@@ -79,19 +79,19 @@ colors:
 
 font:
   normal:
-    family: Fira Mono Nerd Font
+    family: Terminus
     style: Regular
 
   bold:
-    family: Fira Mono Nerd Font
+    family: Terminus
     style: Bold
 
   italic:
-    family: Fira Mono Nerd Font
+    family: Terminus
     style: Italic
 
   bold_italic:
-    family: Fira Mono Nerd Font
+    family: Terminus
     style: Bold Italic
 
-  size: 8
+  size: 9

@@ -20,6 +20,6 @@ AUDIOPLAYDEVICE=snd/0;                            export AUDIOPLAYDEVICE
 AUDIORECDEVICE=snd/0;                             export AUDIORECDEVICE
 
 # Language setting for user
-LANG=es_ES.UTF-8;	                                export LANG
+LANG=es_ES.UTF-8;                                 export LANG
 CHARSET=UTF-8;                                    export CHARSET
 

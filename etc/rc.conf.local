@@ -1,6 +1,5 @@
 apmd_flags=-A
-hotplugd_flags=
 pkg_scripts=messagebus
-sndiod_flags=-f rsnd/0 -s default -m play,rec
 sshd_flags=NO
 xenodm_flags=
+hotplugd_flags=

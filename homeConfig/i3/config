@@ -119,7 +119,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # Disable title bars.
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 # Key combination for dmenu.
 bindsym $mod+d exec "zsh ~/.config/rofi/launchers/type-1/launcher.sh"
@@ -128,12 +128,14 @@ bindsym $mod+d exec "zsh ~/.config/rofi/launchers/type-1/launcher.sh"
 bindsym $mod+Return exec "alacritty"
 
 # Work quick access
-bindsym $mod+Shift+t exec "thunar"
-bindsym $mod+Shift+F6 exec "firefox -P yukiteru"
+bindsym $mod+Shift+F5 exec "thunar"
+bindsym $mod+Shift+F6 exec "firefox -p yukiteru"
+bindsym $mod+Shift+F8 exec "firefox -p bit2me"
 bindsym $mod+Shift+F7 exec "thunderbird"
 bindsym $mod+Shift+g exec "gimp"
 bindsym $mod+Shift+w exec "alacritty -e weechat"
 bindsym $mod+Shift+f exec "flameshot"
+bindsym $mod+Shift+t exec "telegram-desktop"
 
 # Audio quick access
 bindsym $mod+Shift+F9 exec "alacritty -e ncmpcpp"
@@ -146,7 +148,7 @@ bindsym $mod+Shift+F11 exec "sndioctl output.level=+0.1"
 bindsym $mod+Shift+F12 exec "alacritty -e cmixer"
 
 # Map the print key to gnome-screenshot.
-bindsym $mod+Shift+F5 exec "scrot -q 95 -e 'mv $f /home/yukiteru/Imágenes/Screenshots'"
+bindsym $mod+Shift+s exec "scrot -q 95 -e 'mv $f /home/yukiteru/Imágenes/Screenshots'"
 
 # Some applications needs to be floating. mpv is one of them.
 for_window [class="mpv"] floating enable
@@ -172,18 +174,11 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e restart
 
 # Exit i3 (logs you out of your X session).
-# In my case I don't want a warning or anything, so be careful about pressing
-# this combination as it kills X. Also be sure to lock down all applications
-# before usage.
-bindsym $mod+Shift+Escape exec i3-msg exit
+bindsym $mod+Shift+Escape exec "bash /home/yukiteru/.config/rofi/scripts/volfread_t1"
 
 # Shutdown and reboot pc
-bindsym $mod+Control+F1 exec "shutdown -r now"
-bindsym $mod+Control+Escape exec "shutdown -p now"
-
-# If you like a warning that needs to be confirmed with the mouse, you can use
-# the following instead.
-bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'Do you really want to end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Control+F1 exec "i3-nagbar -t warning -m 'Reboot system?' -b 'Yes, reboot!' 'shutdown -r now'"
+bindsym $mod+Control+Escape exec "i3-nagbar -t warning -m 'Shutdown system?' -b 'Yes, shutdown!' 'shutdown -p now'"
 
 # Resize window (you can also use the mouse for that).
 mode "resize" {
@@ -225,12 +220,11 @@ client.background        $base
 
 ## Autostart applicatons ##
 
-# Compton
+# Picom
 exec --no-startup-id "picom --config $HOME/.config/picom/config"
 
 # Let's get our wallpaper.
 # You can run nitrogen from the console and set it up, afterwards use "--restore" to use it in i3.
-#exec --no-startup-id "feh --bg-fill --randomize /home/yukiteru/DATA/PersonalSync/Wallpapers"
 exec --no-startup-id "nitrogen --restore"
 
 # MPD Music
@@ -239,7 +233,7 @@ exec --no-startup-id "mpd $HOME/.config/mpd/mpd.conf"
 # Unclutter
 exec --no-startup-id "unclutter -root"
 
-# Dunst
+# Unclutter
 exec --no-startup-id "dunst -conf $HOME/.config/dunst/dunstrc"
 
 # Numlockx
@@ -248,11 +242,5 @@ exec --no-startup-id "numlockx"
 # Keyboard in spanish
 exec --no-startup-id "setxkbmap -layout us -variant intl"
 
-# Syncthing
-exec --no-startup-id "syncthing --no-browser"
-
 # Polybar
 exec --no-startup-id "bash $HOME/.config/polybar/launch.sh"
-
-# Parcellite
-exec --no-startup-id "parcellite"

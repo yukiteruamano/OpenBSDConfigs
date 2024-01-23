@@ -12,6 +12,7 @@ set -A _lan "%{F$_blu}󰌗" "%{F$_red}󰌗"
 set -A _vpn "%{F$_blu}󰌗" "%{F$_pch}󰌗" "%{F$_red}󰌗"
 set -A _lan_nic "re0"
 set -A _vpn_nic "tun0"
+set -A _wg_nic "wg0"
 set -A _vol "" "" ""
 
 # Functions ------------------------------------------------------------
@@ -48,13 +49,19 @@ function network {
 
 function vpn {
 
-	CHECK_VPN="$(pgrep -fl openvpn | head -n 1| cut -d "/" -f 8 | cut -d "-" -f 1 )"
+	# OpenVPN
+	CHECK_VPN="$(pgrep -fl openvpn | head -n 1| cut -d "/" -f 3 | cut -d "-" -f 1 )"
 
-	if [[ $CHECK_VPN == "surfshark" ]]; then
-		echo -n "VPN:%{T2}${_vpn[0]}%{F-}%{T-}"
-	elif [[ $CHECK_VPN == "bit2me" ]]; then
+	# Wireguard VPN
+	# ifconfig | grep wg0 | wc -l --> 0 or 1
+	CHECK_WG="$(ifconfig | grep ${_wg_nic[0]} | wc -l )"
+
+	# Change connections color
+	if [[ $CHECK_VPN == "openvpn" ]]; then
 		echo -n "VPN:%{T2}${_vpn[1]}%{F-}%{T-}"
-	else 
+	elif [[ $((CHECK_WG)) == "1" ]]; then
+		echo -n "VPN:%{T2}${_vpn[0]}%{F-}%{T-}"
+	else
 		echo -n "VPN:%{T2}${_vpn[2]}%{F-}%{T-}"
 	fi
 }
