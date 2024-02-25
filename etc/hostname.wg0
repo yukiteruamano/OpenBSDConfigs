@@ -1,0 +1,6 @@
+wgkey client_private_key
+wgpeer server_public_key wgendpoint IP|url_server port_server wgaip ip_accepted wgpka keep_alive_sec
+inet ip_iface_client
+up
+!route add server_ip local_gateway
+!route change default iface_ip_gateway

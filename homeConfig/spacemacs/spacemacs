@@ -33,136 +33,173 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     ;; Defaults options
-     ;; -------------------------------------------------------r---------
-     ;; Better defaults options for spaceemacs
-     ;; URL: https://develop.spacemacs.org/layers/+emacs/better-defaults/README.html
-      better-defaults
-      (spell-checking :variables 
-                enable-flyspell-auto-completion t)
       ;; ----------------------------------------------------------------
-      ;; Language support 
+      ;; Example of useful layers you may want to use right away.
+      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+      ;; `M-m f e R' (Emacs style) to install them.
       ;; ----------------------------------------------------------------
-      emacs-lisp
-      (markdown :variables markdown-live-preview-engine 'pandoc)
-      (c-c++ :variables
-                c-c++-backend 'lsp-clangd
-                c-c++-dap-adapters 'dap-lldb
-                c-c++-lsp-enable-semantic-highlight 'rainbow
-                c-c++-default-mode-for-headers 'c++-mode
-                c-c++-enable-organize-includes-on-save t
-                c-c++-enable-auto-newline t
-                c-c++-adopt-subprojects t)
-      (javascript :variables
-                javascript-backend 'lsp
-                javascript-lsp-linter nil
-                javascript-repl 'nodejs
-                javascript-fmt-tool 'web-beautify
-                javascript-linter 'eslint
-                javascript-import-tool 'import-js)
-      (typescript :variables
-                typescript-backend 'lsp
-                typescript-lsp-linter nil
-                typescript-fmt-tool 'prettier
-                typescript-linter 'eslint
-                typescript-import-tool 'import-js)
-      (html :variables
-                css-enable-lsp t
-                html-enable-lsp t
-                web-fmt-tool 'web-beautify)
-      (json :variables
-                json-backend 'lsp
-                json-fmt-tool 'web-beautify
-                json-fmt-on-save t)
-      (shell-scripts :variables 
-                shell-scripts-format-on-save t
-                shell-scripts-backend 'lsp)
-      (solidity :variables 
-                solidity-flycheck-solc-checker-active t)
-      (go :variables 
-                go-backend 'lsp
-                go-tab-width 4
-                go-use-golangci-lint t
-                go-dap-mode 'dap-go)
-      (lua :variables
-                lua-backend 'lsp
-                lua-lsp-server 'lua-lsp
-                lsp-clients-luarocks-bin-dir "~/.luarocks/bin/")
-      (python :variables 
-                python-backend 'anaconda
-                ;;python-backend 'lsp
-                ;;python-lsp-server 'pyright
-                python-test-runner 'nose
-                python-formatter 'black
-                python-fill-column 99
-                python-format-on-save t
-                python-sort-imports-on-save t)
-      (languagetool :variables
-                langtool-default-language "en-US"
-                langtool-http-server-host "192.168.10.8"
-                langtool-http-server-port 18010)
-      gpu
-      rust
-      (yaml :variables 
-                yaml-enable-lsp t)
       ;; ----------------------------------------------------------------
-      ;; Tools for dev
+      ;; Checkers
       ;; ----------------------------------------------------------------
-      semantic
-      (dash :variables 
-                dash-autoload-common-docsets nil
-                dash-docs-docset-newpath "~/.local/share/Zeal/Zeal/docsets")
-      (git :variables
-                git-magit-status-fullscreen t
-                git-enable-magit-delta-plugin t)
-      (helm :variables 
-                spacemacs-helm-rg-max-column-number 1024
-                helm-enable-auto-resize t)
-      (auto-completion :variables
-                auto-completion-enable-help-tooltip t
-                auto-completion-enable-snippets-in-popup t)
-      lsp
-      dap
-      meson
+      (spell-checking :variables
+        enable-flyspell-auto-completion t)
       syntax-checking
-      version-control
-      web-beautify
-      prettier
-      import-js
-      pandoc
-      node
-      tern
-      tide
-      sphinx
-      (docker :variables 
-                docker-dockerfile-backend 'lsp)
-      (cmake :variables
-                cmake-enable-cmake-ide-support t
-                cmake-backend 'lsp)
-      spacemacs-project
-      (shell :variables 
-                shell-default-shell 'vterm
-                shell-default-position 'bottom
-                shell-default-term-shell "/usr/local/bin/zsh"
-                shell-default-height 30)
-      personal-layer
       ;; ----------------------------------------------------------------
-      ;; GUI
+      ;; Completion
       ;; ----------------------------------------------------------------
-      (colors :variables 
-                colors-colorize-identifiers 'all)
-      themes-megapack
-      theming
-      multiple-cursors
-      tabs
+      (auto-completion :variables
+        auto-completion-return-key-behavior 'complete
+        auto-completion-tab-key-behavior 'cycle
+        auto-completion-complete-with-key-sequence nil
+        auto-completion-complete-with-key-sequence-delay 0.1
+        auto-completion-enable-snippets-in-popup t
+        auto-completion-enable-help-tooltip t
+        auto-completion-enable-sort-by-usage t
+        spacemacs-default-company-backends '(company-files company-capf)
+        auto-completion-private-snippets-directory nil)
+      (helm :variables
+        spacemacs-helm-rg-max-column-number 1024
+        helm-enable-auto-resize t)
+      ;; ----------------------------------------------------------------
+      ;; Emacs
+      ;; ----------------------------------------------------------------
+      better-defaults
+      (tabs :variables 
+        tabs-selected-tab-bar 'over)
+      ;; ----------------------------------------------------------------
+      ;; Tree
+      ;; ----------------------------------------------------------------
+      treemacs     
+      ;; ----------------------------------------------------------------
+      ;; Fonts
+      ;; ----------------------------------------------------------------
       unicode-fonts
-      emoji
-      treemacs)
+      ;; ----------------------------------------------------------------
+      ;; Lang
+      ;; ----------------------------------------------------------------
+      (c-c++ :variables
+        c-c++-backend 'lsp-clangd
+        c-c++-dap-adapters 'dap-lldb
+        c-c++-default-mode-for-headers 'c++-mode
+        c-c++-enable-organize-includes-on-save t
+        c-c++-enable-auto-newline t
+        c-c++-adopt-subprojects t)
+      emacs-lisp
+      (go :variables
+        go-backend 'lsp
+        go-tab-width 4
+        go-use-golangci-lint t
+	go-format-before-save t
+        go-dap-mode 'dap-go)
+      gpu
+      (html :variables
+        css-enable-lsp t
+        html-enable-lsp t
+        less-enable-lsp t
+        web-fmt-tool 'web-beautify)
+      (javascript :variables
+        javascript-backend 'lsp
+        javascript-lsp-linter nil
+        javascript-repl 'nodejs
+        javascript-fmt-on-save t
+        javascript-fmt-tool 'web-beautify
+        javascript-linter 'eslint
+        javascript-import-tool 'import-js
+        js2-basic-offset 2
+        js-indent-level 2)
+      (json :variables
+        json-backend 'lsp
+        json-fmt-tool 'web-beautify
+        json-fmt-on-save t)
+      (markdown :variables
+        markdown-live-preview-engine 'pandoc)
+      (python :variables
+        python-backend 'lsp
+        python-lsp-server 'pyright
+        python-test-runner 'nose
+        python-formatter 'black
+        python-fill-column 99
+        python-format-on-save t
+        python-sort-imports-on-save t)
+      rust
+      (shell-scripts :variables
+        shell-scripts-format-on-save t
+        shell-scripts-backend 'lsp)
+      (typescript :variables
+        typescript-backend 'lsp
+        typescript-lsp-linter nil
+        typescript-fmt-on-save t
+        typescript-fmt-tool 'prettier
+        typescript-linter 'eslint
+        typescript-import-tool 'import-js)
+      (yaml :variables 
+        yaml-enable-lsp t)
+      ;; ----------------------------------------------------------------
+      ;; Readers
+      ;; ----------------------------------------------------------------
+      (dash :variables 
+        dash-autoload-common-docsets nil
+        dash-docs-docset-newpath "~/.local/share/Zeal/Zeal/docsets")
+      ;; ----------------------------------------------------------------
+      ;; Source control
+      ;; ----------------------------------------------------------------
+      (git :variables
+        git-magit-status-fullscreen t
+        git-enable-magit-delta-plugin t)
+      (version-control :variables
+        version-control-diff-side 'left
+        version-control-diff-tool 'diff-hl)
+      ;; ----------------------------------------------------------------
+      ;; Spacemacs
+      ;; ----------------------------------------------------------------
+      spacemacs-editing
+      spacemacs-project
+      spacemacs-visual
+      ;; ----------------------------------------------------------------
+      ;; Tags
+      ;; ----------------------------------------------------------------
+      (gtags :variables gtags-enable-by-default t)
+      ;; ----------------------------------------------------------------
+      ;; Themes
+      ;; ----------------------------------------------------------------
+      (colors :variables colors-colorize-identifiers 'all)
+      themes-megapack
+      ;; ----------------------------------------------------------------
+      ;; Tools
+      ;; ----------------------------------------------------------------
+      chrome
+      (cmake :variables
+        cmake-backend 'lsp
+        cmake-enable-cmake-ide-support t)
+      dap
+      import-js
+      (ipython-notebook :variables ein-backend 'jupyter)
+      (lsp :variables
+        lsp-modeline-code-actions-segments '(count icon)
+        lsp-lens-enable t)
+      meson
+      node
+      pandoc
+      prettier
+      (shell :variables 
+        shell-default-term-shell "/usr/local/bin/zsh"
+        shell-default-shell 'vterm)
+      sphinx
+      (tree-sitter :variables
+        spacemacs-tree-sitter-hl-black-list '(js2-mode rjsx-mode)
+        tree-sitter-syntax-highlight-enable t)
+      web-beautify
+      (xclipboard :variables xclipboard-enable-cliphist t)
+      ;; ----------------------------------------------------------------
+      ;; Webservices
+      ;; ----------------------------------------------------------------
+      hackernews
+      lobsters
+      ;; ----------------------------------------------------------------
+      ;; Personal
+      ;; ----------------------------------------------------------------
+      direnv-layer
+)
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
@@ -345,8 +382,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-tokyo-night
-                         spacemacs-dark)
+   dotspacemacs-themes '(doom-dracula
+			spacemacs-dark
+                         )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -355,7 +393,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator arrow :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -442,6 +480,10 @@ It should only modify the values of Spacemacs settings."
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
+   ;; It is also possible to use a posframe with the following cons cell
+   ;; `(posframe . position)' where position can be one of `center',
+   ;; `top-center', `bottom-center', `top-left-corner', `top-right-corner',
+   ;; `top-right-corner', `bottom-left-corner' or `bottom-right-corner'
    ;; (default 'bottom)
    dotspacemacs-which-key-position 'bottom
 
@@ -650,7 +692,6 @@ This function defines the environment variables for your Emacs session. By
 default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
-
   (spacemacs/load-spacemacs-env)
 )
 
@@ -661,9 +702,10 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
-  ;; Setting up Python3 bin
+  ;; -----------------------------------------------------------
+  ;; Python path
+  ;; -----------------------------------------------------------
   (setq python-shell-interpreter "/usr/local/bin/python3")
-
 )
 
 
@@ -682,15 +724,31 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; -----------------------------------------------------------
   ;; Support for US and ES dictionaries
-  (with-eval-after-load "ispell"
-    (setq ispell-program-name "aspell")
+  ;; -----------------------------------------------------------
+  ;;(with-eval-after-load "ispell"
+  ;;  (setq ispell-program-name "hunspell")
     ;; ispell-set-spellchecker-params has to be called
     ;; before ispell-hunspell-add-multi-dic will work
+   ;; (ispell-set-spellchecker-params)
+   ;; (ispell-hunspell-add-multi-dic "es_ES,en_US")
+   ;; (setq ispell-dictionary "es_ES,en_US"))
+
+  ;; Support for US and ES dictionaries
+  (with-eval-after-load "ispell"
+   (setq ispell-program-name "aspell")
     (ispell-set-spellchecker-params)
     (setq ispell-dictionary "en_US"))
 
+  ;; -----------------------------------------------------------
+  ;; Python path
+  ;; -----------------------------------------------------------
   (setq python-shell-interpreter "/usr/local/bin/python3")
+
+  ;; Show lines
+  (setq-default global-display-line-numbersmode t)
+
 )
 
 

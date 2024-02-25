@@ -1,8 +1,8 @@
-;;; packages.el --- personal-layer layer packages file for Spacemacs.
+;;; packages.el --- direnv-layer layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2012-2022 Sylvain Benner & Contributors
+;; Copyright (c) 2012-2024 Sylvain Benner & Contributors
 ;;
-;; Author: yukiteru <yukiteru@volfread.local>
+;; Author: Yukiteru Amano <yukiteru@volfread.chitose.lan>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
@@ -29,21 +29,20 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `personal-layer-packages'. Then, for each package PACKAGE:
+;; added to `direnv-layer-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `personal-layer/init-PACKAGE' to load and initialize the package.
+;;   function `direnv-layer/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `personal-layer/pre-init-PACKAGE' and/or
-;;   `personal-layer/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `direnv-layer/pre-init-PACKAGE' and/or
+;;   `direnv-layer/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
-(defconst personal-layer-packages
+(defconst direnv-layer-packages
   '((direnv :location elpa))
-
-  "The list of Lisp packages required by the personal-layer layer.
+  "The list of Lisp packages required by the direnv-layer layer.
 
 Each entry is either:
 
@@ -70,6 +69,6 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun personal-layer/init-direnv ()
+(defun direnv-layer/init-direnv ()
   (use-package direnv
     :init (direnv-mode)))
