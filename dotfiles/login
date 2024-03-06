@@ -14,14 +14,26 @@ set	ignoreeof
 setenv	EXINIT		'set ai sm noeb'
 
 # Personal configuration
-setenv EDITOR	'vim'
-setenv PAGER	'less'
+
+# Personal configs
+setenv EDITOR   'vim'
+setenv PAGER    'less'
+
+# Personal exports
 setenv QT_QPA_PLATFORMTHEME 'qt5ct'
 setenv XDG_RUNTIME_DIR '/home/yukiteru/.local/run/yukiteru'
-setenv MOZ_ACCELERATED 1
-setenv MOZ_WEBRENDER 1
 setenv AUDIODEVICE 'snd/0'
 setenv AUDIOPLAYDEVICE 'snd/0'
 setenv AUDIORECDEVICE 'snd/0'
+setenv GOPATH '/home/yukiteru/.golang'
+setenv PARALLEL_BUILD 'YES'
+setenv MAKE_JOBS 4
+setenv RUST_SRC_PATH '/usr/local/lib/rustlib/src/rust/library'
+setenv CVSROOT 'anoncvs@anoncvs.spacehopper.org:/cvs'
+setenv RESTIC_REPOSITORY '/mnt/BackupOBSD'
+
+# Language setting for user
+setenv LANG 'es_ES.UTF-8'
+setenv CHARSET 'UTF-8'
 
 if (-x /usr/games/fortune) /usr/games/fortune

@@ -118,7 +118,7 @@ This function should only modify configuration layer settings."
         python-lsp-server 'pyright
         python-test-runner 'nose
         python-formatter 'black
-        python-fill-column 99
+	python-fill-column 80
         python-format-on-save t
         python-sort-imports-on-save t)
       rust
@@ -153,6 +153,7 @@ This function should only modify configuration layer settings."
       ;; Spacemacs
       ;; ----------------------------------------------------------------
       spacemacs-editing
+      spacemacs-editing-visual
       spacemacs-project
       spacemacs-visual
       ;; ----------------------------------------------------------------
@@ -570,7 +571,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -706,7 +707,13 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; Python path
   ;; -----------------------------------------------------------
   (setq python-shell-interpreter "/usr/local/bin/python3")
+
+  ;; -----------------------------------------------------------
+  ;; Columns max 80 chars
+  ;; -----------------------------------------------------------
+  (setq-default set-fill-column 80)
 )
+
 
 
 (defun dotspacemacs/user-load ()
@@ -746,9 +753,10 @@ before packages are loaded."
   ;; -----------------------------------------------------------
   (setq python-shell-interpreter "/usr/local/bin/python3")
 
-  ;; Show lines
-  (setq-default global-display-line-numbersmode t)
-
+  ;; -----------------------------------------------------------
+  ;; Columns max 80 chars
+  ;; -----------------------------------------------------------
+  (setq-default set-fill-column 80)
 )
 
 
