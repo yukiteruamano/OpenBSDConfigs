@@ -13,7 +13,7 @@ alias ll	ls -lsA
 alias tset	'set noglob histchars=""; eval `\tset -s \!*`; unset noglob histchars'
 alias z		suspend
 
-set path = (~/.local/bin ~/.cargo/bin ~/.golang/bin  ~/bin /bin /sbin /usr/{bin,sbin,X11R6/bin,local/bin,local/sbin})
+set path = (~/.golang/bin ~/.cargo/bin ~/.config/emacs/bin ~/.local/bin ~/bin /bin /sbin /usr/{bin,sbin,X11R6/bin,local/bin,local/sbin})
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
@@ -32,10 +32,10 @@ if ($?prompt) then
 endif
 
 # Personal configs
-setenv EDITOR	'vim'
+setenv EDITOR	'nvim'
 setenv PAGER	'less'
 
-# Personal exports
+# # Personal exports
 setenv QT_QPA_PLATFORMTHEME 'qt5ct'
 setenv XDG_RUNTIME_DIR '/home/yukiteru/.local/run/yukiteru'
 setenv AUDIODEVICE 'snd/0'
@@ -46,8 +46,12 @@ setenv PARALLEL_BUILD 'YES'
 setenv MAKE_JOBS 4
 setenv RUST_SRC_PATH '/usr/local/lib/rustlib/src/rust/library'
 setenv CVSROOT 'anoncvs@anoncvs.spacehopper.org:/cvs'
-setenv RESTIC_REPOSITORY '/mnt/BackupOBSD'
+setenv PIPENV_VENV_IN_PROJECT 1
+setenv MOZ_ACCELERATED 1
+setenv MOZ_WEBRENDER 1
+setenv RESTIC_REPOSITORY '/mnt/Backups'
 
-# Language setting for user
+# # Language setting for user
 setenv LANG 'es_ES.UTF-8'
 setenv CHARSET 'UTF-8'
+

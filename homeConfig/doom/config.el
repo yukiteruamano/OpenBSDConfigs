@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Fira Mono" :size 11 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Fira Mono" :size 11))
+(setq doom-font (font-spec :family "FiraMono Nerd Font Mono" :size 11 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "FiraMono Nerd Font Mono" :size 11))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;;(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -81,8 +81,6 @@
 (after! flycheck
   ;; Flycheck for Clang
   (setq-default flycheck-c/c++-clang-executable "/usr/local/bin/clang-16")
-  (setq-default flycheck-clang-language-standard "c11")
-  (setq-default flycheck-c++-clang-language-standard "c++11")
 )
 
 ;; =========================================================================
@@ -97,6 +95,12 @@
   (setq flyspell-lazy-idle-seconds 5))
 
 ;; =========================================================================
+;; Styling
+;; =========================================================================
+(setq indent-tabs-mode t)
+(setq tab-width 4)
+
+;; =========================================================================
 ;; Clangd styling code
 ;; =========================================================================
 
@@ -104,7 +108,7 @@
 ;; BSD Style
 (add-hook! (c-mode c++-mode)
   (setq c-default-style "bsd")
-  (setq c-basic-offset 2))
+  (setq c-basic-offset 4))
 
 ;; BSD Style for OpenBSD
 (defun bsd-style-code () (interactive)
@@ -120,7 +124,6 @@
       (c-set-offset 'arglist-cont-nonempty 4)
       (c-set-offset 'inclass 8)
       (c-set-offset 'knr-argdecl-intro 8))
-
 
 ;; =========================================================================
 ;; LSP Mode config
@@ -147,18 +150,6 @@
           "--header-insertion-decorators=0"))
   (set-lsp-priority! 'clangd 2))
 
-;; LSP UI mods
-(after! lsp-ui
-  (setq lsp-ui-doc-max-height 25
-        lsp-ui-doc-max-width 150
-        lsp-ui-doc-enable t
-        lsp-ui-doc-delay 0.3
-	lsp-ui-doc-show-with-cursor t
-	lsp-ui-doc-frame-mode t
-	lsp-ui-doc-use-childframe t
-        lsp-ui-sideline-show-code-actions t))
-
-
 ;; =========================================================================
 ;; Python
 ;; =========================================================================
@@ -170,7 +161,7 @@
 
 ;; Python MS Stubs (Sync for Git)
 (setq lsp-pyright-use-library-code-for-types t) 
-(setq lsp-pyright-stub-path (concat (getenv "HOME") ".local/share/python-stubs"))
+(setq lsp-pyright-stub-path (concat (getenv "HOME") "/DEVEL/python-type-stubs/stubs"))
 
 ;; Config for ipython and jupyter
 (setq +python-ipython-repl-args '("-i" "--simple-prompt" "--no-color-info"))
@@ -187,14 +178,6 @@
 ;; Gravatar support for magit-commits
 (after! magit
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
-
-;; =========================================================================
-;; Dash config
-;; =========================================================================
-
-(after! dash-docs
-  (setq dash-docs-docsets-path "/home/yukiteru/.local/share/Zeal/Zeal/docsets"))
-
 
 ;; =========================================================================
 ;; Performance config
@@ -228,7 +211,7 @@
 
 ;; UI Tweaks
 ;; Splash screen personalized
-(defun my-weebery-is-always-greater ()
+(defun new-banner-happy ()
   (let* ((banner '("⢸⣿⣿⣿⣿⠃⠄⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀⠄"
                    "⢸⣿⣿⣿⡟⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷"
                    "⢸⣿⣿⠟⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿"
@@ -255,7 +238,7 @@
      'face 'doom-dashboard-banner)))
 
 ;; Init new splash screen
-(setq +doom-dashboard-ascii-banner-fn #'my-weebery-is-always-greater)
+(setq +doom-dashboard-ascii-banner-fn #'new-banner-happy)
 
 ;; Append new message in init dashboard 
 (add-hook! '+doom-dashboard-functions :append
@@ -265,10 +248,6 @@
 ;; Hook for rainbow-mode
 (add-hook! 'rainbow-mode-hook
   (hl-line-mode (if rainbow-mode -1 +1)))
-
-;; Company backends
-(after! company
-  (setq company-backends '(company-tabnine company-capf)))
 
 ;; xterm mouse support
 (setq xterm-mouse-mode 1)

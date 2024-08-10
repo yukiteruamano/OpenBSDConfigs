@@ -51,3 +51,4 @@
 
 ;; Catpuccin theme
 (package! catppuccin-theme)
+

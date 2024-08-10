@@ -122,18 +122,17 @@ bindsym $mod+Shift+0 move container to workspace 10
 for_window [class="^.*"] border pixel 0
 
 # Key combination for dmenu.
-bindsym $mod+d exec "zsh ~/.config/rofi/launchers/type-1/launcher.sh"
+bindsym $mod+d exec "zsh $HOME/.config/rofi/launchers/type-1/launcher.sh"
 
 # Key combination for some of my favorite applications.
 bindsym $mod+Return exec "alacritty"
 
 # Work quick access
 bindsym $mod+Shift+F5 exec "thunar"
-bindsym $mod+Shift+F6 exec "firefox -p yukiteru"
-bindsym $mod+Shift+F8 exec "firefox -p bit2me"
-bindsym $mod+Shift+F7 exec "thunderbird"
+bindsym $mod+Shift+F6 exec "chrome"
+bindsym $mod+Shift+F8 exec "firefox"
+bindsym $mod+Shift+F7 exec "claws-mail"
 bindsym $mod+Shift+g exec "gimp"
-bindsym $mod+Shift+w exec "alacritty -e weechat"
 bindsym $mod+Shift+f exec "flameshot"
 bindsym $mod+Shift+t exec "telegram-desktop"
 
@@ -148,7 +147,7 @@ bindsym $mod+Shift+F11 exec "sndioctl output.level=+0.1"
 bindsym $mod+Shift+F12 exec "alacritty -e cmixer"
 
 # Map the print key to gnome-screenshot.
-bindsym $mod+Shift+s exec "scrot -q 95 -e 'mv $f /home/yukiteru/Imágenes/Screenshots'"
+bindsym $mod+Shift+s exec "scrot -q 95 -e 'mv $f $HOME/Imágenes/Screenshots'"
 
 # Some applications needs to be floating. mpv is one of them.
 for_window [class="mpv"] floating enable
@@ -162,7 +161,7 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 # Screen lock. See 'man i3lock' for information about usage.
-bindsym $mod+Control+l exec "i3lock -t -i /home/yukiteru/.lock.png --color=000000"
+bindsym $mod+Control+l exec "i3lock -t -i $HOME/.lock.png --color=000000"
 
 # Jump to the latest "urgent" window.
 bindsym $mod+u [urgent=latest] focus
@@ -174,7 +173,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e restart
 
 # Exit i3 (logs you out of your X session).
-bindsym $mod+Shift+Escape exec "bash /home/yukiteru/.config/rofi/scripts/volfread_t1"
+bindsym $mod+Shift+Escape exec "bash $HOME/.config/rofi/scripts/volfread_t1"
 
 # Shutdown and reboot pc
 bindsym $mod+Control+F1 exec "i3-nagbar -t warning -m 'Reboot system?' -b 'Yes, reboot!' 'shutdown -r now'"
@@ -225,7 +224,7 @@ exec --no-startup-id "picom --config $HOME/.config/picom/config"
 
 # Let's get our wallpaper.
 # You can run nitrogen from the console and set it up, afterwards use "--restore" to use it in i3.
-exec --no-startup-id "nitrogen --restore"
+# exec --no-startup-id "nitrogen --restore"
 
 # MPD Music
 exec --no-startup-id "mpd $HOME/.config/mpd/mpd.conf"
@@ -244,3 +243,9 @@ exec --no-startup-id "setxkbmap -layout us -variant intl"
 
 # Polybar
 exec --no-startup-id "bash $HOME/.config/polybar/launch.sh"
+
+# Parcellite
+exec --no-startup-id "parcellite"
+
+# Randr
+exec --no-startup-id "bash $HOME/.local/bin/randr-monitors"

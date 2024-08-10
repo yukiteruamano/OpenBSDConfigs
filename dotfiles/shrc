@@ -51,7 +51,7 @@ PS1="\u@\h:\w \\$ "
 # CDPATH=:$HOME
 
 # Personal exports
-EDITOR='vim';                                                   export EDITOR
+EDITOR='nvim';                                                  export EDITOR
 PAGER='less';                                                   export PAGER
 
 # Personal exports
@@ -65,7 +65,10 @@ PARALLEL_BUILD='YES';                                           export PARALLEL_
 MAKE_JOBS=4;                                                    export MAKE_JOBS
 RUST_SRC_PATH='/usr/local/lib/rustlib/src/rust/library';        export RUST_SRC_PATH
 CVSROOT='anoncvs@anoncvs.spacehopper.org:/cvs';                 export CVSROOT
-RESTIC_REPOSITORY='/mnt/BackupOBSD'				export RESTIC_REPOSITORY
+PIPENV_VENV_IN_PROJECT=1; 					export PIPENV_VENV_IN_PROJECT
+RESTIC_REPOSITORY='/mnt/Backups'				export RESTIC_REPOSITORY
+MOZ_WEBRENDER=1;						export MOZ_WEBRENDER
+MOZ_ACCELERATED=1;						export MOZ_ACCELERATED
 
 # Language setting for user
 LANG='es_ES.UTF-8';                                             export LANG

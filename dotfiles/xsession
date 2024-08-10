@@ -1,7 +1,7 @@
 # ENV for the X11 session
 export LANG="es_ES.UTF-8"
 export CHARSET="UTF-8"
-export EDITOR="vim"
+export EDITOR="nvim"
 export PAGER="less"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export XDG_RUNTIME_DIR="$HOME/.local/run/yukiteru"
@@ -14,7 +14,9 @@ export PARALLEL_BUILD="Yes"
 export MAKE_JOBS=4
 export GOPATH="${HOME}/.golang"
 export RUST_SRC_PATH="/usr/local/lib/rustlib/src/rust/library"
-export RESTIC_REPOSITORY="/mnt/BackupOBSD"
+export RESTIC_REPOSITORY="/mnt/Backups"
+export MOZ_ACCELERATED=1
+export MOZ_WEBRENDER=1
 
 # Dbus session
 if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then

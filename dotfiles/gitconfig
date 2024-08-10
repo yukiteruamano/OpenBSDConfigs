@@ -3,7 +3,7 @@
 	email = 
 	signingkey = 
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = master
 

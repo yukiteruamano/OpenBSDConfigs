@@ -7,11 +7,10 @@ export CVSROOT=anoncvs@anoncvs.spacehopper.org:/cvs
 export GOPATH=$HOME/.golang
 
 # Rust 
-# export RUST_SRC_PATH="/usr/local/lib/rustlib/src/rust/library"
+export RUST_SRC_PATH="/usr/local/lib/rustlib/src/rust/library"
 
 # PATH from system
-# export PATH=$HOME/.luarocks/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.config/emacs/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$GOPATH/bin:$HOME/.emacs.d/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=/usr/ports/infrastructure/bin:$GOPATH/bin:$HOME/.config/emacs/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -103,7 +102,7 @@ export CHARSET="UTF-8"
 # export ARCHFLAGS="-arch x86_64"
 
 # Exports personales
-export EDITOR="vim" 
+export EDITOR="nvim" 
 export PAGER="less" 
 export QT_QPA_PLATFORMTHEME="qt5ct" 
 export XDG_RUNTIME_DIR="$HOME/.local/run/yukiteru"
@@ -119,13 +118,11 @@ export AUDIOPLAYDEVICE=snd/0
 export AUDIORECDEVICE=snd/0
 
 # PIPENV
-# export PIPENV_VENV_IN_PROJECT=1
-# eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+export PIPENV_VENV_IN_PROJECT=1
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
 # FZF
-autoload _fzf_key_bindings _fzf_completion
-_fzf_key_bindings
-_fzf_completion
+eval "$(fzf --zsh)"
 
 # Direnv
 eval "$(direnv hook zsh)"
@@ -145,11 +142,6 @@ keychain ~/.ssh/id_ed25519
 
 # Update CVS for ports and src
 alias upcvs="cvs -q up -Pd -A"
-
-# VPN Work Control
-alias vpn-work-enable="doas vpn-work-control work"
-alias vpn-personal-enable="doas vpn-work-control personal"
-alias no-vpn-connection="doas vpn-work-control novpn"
 
 # Clean PATH duplication
 typeset -U path

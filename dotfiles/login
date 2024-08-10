@@ -16,7 +16,7 @@ setenv	EXINIT		'set ai sm noeb'
 # Personal configuration
 
 # Personal configs
-setenv EDITOR   'vim'
+setenv EDITOR   'nvim'
 setenv PAGER    'less'
 
 # Personal exports
@@ -30,7 +30,9 @@ setenv PARALLEL_BUILD 'YES'
 setenv MAKE_JOBS 4
 setenv RUST_SRC_PATH '/usr/local/lib/rustlib/src/rust/library'
 setenv CVSROOT 'anoncvs@anoncvs.spacehopper.org:/cvs'
-setenv RESTIC_REPOSITORY '/mnt/BackupOBSD'
+setenv MOZ_ACCELERATED 1
+setenv MOZ_WEBRENDER 1
+setenv RESTIC_REPOSITORY '/mnt/Backups'
 
 # Language setting for user
 setenv LANG 'es_ES.UTF-8'
