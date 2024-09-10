@@ -94,6 +94,18 @@ bindsym $mod+space focus mode_toggle
 # Focus the child container.
 #bindsym $mod+d focus child
 
+# Workspace definition
+workspace 1 output HDMI-A-0
+workspace 2 output HDMI-A-0
+workspace 3 output HDMI-A-0
+workspace 4 output HDMI-A-0
+workspace 5 output HDMI-A-0
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output HDMI-A-1
+
 # Switch to workspace.
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -201,13 +213,6 @@ mode "resize" {
 # Resize windows.
 bindsym $mod+r mode "resize"
 
-#client.focused          #79C0F4 #5493DD #FFFFFF #5493DD   #79C0F4
-#client.focused_inactive #A5A5A5 #333333 #FFFFFF #333333   #A5A5A5
-#client.unfocused        #A5A5A5 #4C7BB2 #FFFFFF #4C7BB2   #A5A5A5
-#client.urgent           #900000 #900000 #FFFFFF #900000   #900000
-#client.placeholder      #0C0C0C #0C0C0C #FFFFFF #0C0C0C   #0C0C0C
-#client.background       #FFFFFF
-
 # Mocha theme
 # target                 title     bg    text   indicator  border
 client.focused           $pink     $base $text  $rosewater $blue
@@ -221,10 +226,6 @@ client.background        $base
 
 # Picom
 exec --no-startup-id "picom --config $HOME/.config/picom/config"
-
-# Let's get our wallpaper.
-# You can run nitrogen from the console and set it up, afterwards use "--restore" to use it in i3.
-# exec --no-startup-id "nitrogen --restore"
 
 # MPD Music
 exec --no-startup-id "mpd $HOME/.config/mpd/mpd.conf"
@@ -249,3 +250,12 @@ exec --no-startup-id "parcellite"
 
 # Randr
 exec --no-startup-id "bash $HOME/.local/bin/randr-monitors"
+
+# Mount SSHFS
+exec --no-startup-id "bash $HOME/.local/bin/automounter-sshfs"
+
+# Emacs daemon
+exec --no-startup-id "emacs --daemon"
+
+# Wallpapers
+exec --no-startup-id "bash /home/yukiteru/.local/bin/randWallpaper.sh" 

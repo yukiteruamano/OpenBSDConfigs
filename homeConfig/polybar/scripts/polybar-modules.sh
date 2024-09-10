@@ -50,17 +50,14 @@ function network {
 function vpn {
 
 	# OpenVPN
-	CHECK_VPN="$(pgrep -fl openvpn | head -n 1| cut -d "/" -f 3 | cut -d "-" -f 1 )"
-
-	# Wireguard VPN
-	# ifconfig | grep wg0 | wc -l --> 0 or 1
-	CHECK_WG="$(ifconfig | grep ${_wg_nic[0]} | wc -l )"
+	CHECK_VPN="$(pgrep -fl openvpn | head -n 1| cut -d "/" -f 8 | cut -d "-" -f 1 )"
+        CHECK_WG="$(route get default |  sed -n 's/.*gateway: //p')"
 
 	# Change connections color
-	if [[ $CHECK_VPN == "openvpn" ]]; then
-		echo -n "VPN:%{T2}${_vpn[1]}%{F-}%{T-}"
-	elif [[ $((CHECK_WG)) == "1" ]]; then
+	if [[ $CHECK_WG == "10.7.0.2" ]]; then
 		echo -n "VPN:%{T2}${_vpn[0]}%{F-}%{T-}"
+	elif [[ $CHECK_VPN == "bit2me" ]]; then
+		echo -n "VPN:%{T2}${_vpn[1]}%{F-}%{T-}"
 	else
 		echo -n "VPN:%{T2}${_vpn[2]}%{F-}%{T-}"
 	fi
