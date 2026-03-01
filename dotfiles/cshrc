@@ -13,7 +13,7 @@ alias ll	ls -lsA
 alias tset	'set noglob histchars=""; eval `\tset -s \!*`; unset noglob histchars'
 alias z		suspend
 
-set path = (~/.golang/bin ~/.cargo/bin ~/.config/emacs/bin ~/.local/bin ~/bin /bin /sbin /usr/{bin,sbin,X11R6/bin,local/bin,local/sbin})
+set path = (~/bin /bin /sbin /usr/{bin,sbin,X11R6/bin,local/bin,local/sbin})
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
@@ -32,26 +32,29 @@ if ($?prompt) then
 endif
 
 # Personal configs
+
 setenv EDITOR	'nvim'
 setenv PAGER	'less'
 
-# # Personal exports
-setenv QT_QPA_PLATFORMTHEME 'qt5ct'
-setenv XDG_RUNTIME_DIR '/home/yukiteru/.local/run/yukiteru'
-setenv AUDIODEVICE 'snd/0'
-setenv AUDIOPLAYDEVICE 'snd/0'
-setenv AUDIORECDEVICE 'snd/0'
+# Personal exports
+
+setenv QT_QPA_PLATFORMTHEME 'qt6ct'
+setenv XDG_RUNTIME_DIR '/tmp/run/user/1000'
+setenv AUDIODEVICE 'snd/1'
+setenv AUDIOPLAYDEVICE 'snd/1'
+setenv AUDIORECDEVICE 'snd/1'
 setenv GOPATH '/home/yukiteru/.golang'
 setenv PARALLEL_BUILD 'YES'
 setenv MAKE_JOBS 4
 setenv RUST_SRC_PATH '/usr/local/lib/rustlib/src/rust/library'
 setenv CVSROOT 'anoncvs@anoncvs.spacehopper.org:/cvs'
-setenv PIPENV_VENV_IN_PROJECT 1
 setenv MOZ_ACCELERATED 1
 setenv MOZ_WEBRENDER 1
-setenv RESTIC_REPOSITORY '/mnt/Backups'
+setenv XCURSOR_SIZE 16
+setenv FREETYPE_PROPERTIES "cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0"
+setenv XKB_DEFAULT_LAYOUT "us"
+setenv XKB_DEFAULT_VARIANT "intl"
 
-# # Language setting for user
+# Language setting for user
 setenv LANG 'es_ES.UTF-8'
 setenv CHARSET 'UTF-8'
-

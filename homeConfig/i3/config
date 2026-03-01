@@ -95,16 +95,16 @@ bindsym $mod+space focus mode_toggle
 #bindsym $mod+d focus child
 
 # Workspace definition
-workspace 1 output HDMI-A-0
-workspace 2 output HDMI-A-0
-workspace 3 output HDMI-A-0
-workspace 4 output HDMI-A-0
-workspace 5 output HDMI-A-0
-workspace 6 output HDMI-A-1
-workspace 7 output HDMI-A-1
-workspace 8 output HDMI-A-1
-workspace 9 output HDMI-A-1
-workspace 10 output HDMI-A-1
+workspace 1 output DisplayPort-0
+workspace 2 output DisplayPort-0
+workspace 3 output DisplayPort-0
+workspace 4 output DisplayPort-0
+workspace 5 output DisplayPort-0
+workspace 6 output DisplayPort-0
+workspace 7 output DisplayPort-0
+workspace 8 output DisplayPort-0
+workspace 9 output DisplayPort-0
+workspace 10 output DisplayPort-0
 
 # Switch to workspace.
 bindsym $mod+1 workspace 1
@@ -143,10 +143,10 @@ bindsym $mod+Return exec "alacritty"
 bindsym $mod+Shift+F5 exec "thunar"
 bindsym $mod+Shift+F6 exec "chrome"
 bindsym $mod+Shift+F8 exec "firefox"
-bindsym $mod+Shift+F7 exec "claws-mail"
+bindsym $mod+Shift+F7 exec "thunderbird"
 bindsym $mod+Shift+g exec "gimp"
 bindsym $mod+Shift+f exec "flameshot"
-bindsym $mod+Shift+t exec "telegram-desktop"
+bindsym $mod+Shift+t exec "Telegram"
 
 # Audio quick access
 bindsym $mod+Shift+F9 exec "alacritty -e ncmpcpp"
@@ -233,14 +233,17 @@ exec --no-startup-id "mpd $HOME/.config/mpd/mpd.conf"
 # Unclutter
 exec --no-startup-id "unclutter -root"
 
-# Unclutter
+# Dunst notification
 exec --no-startup-id "dunst -conf $HOME/.config/dunst/dunstrc"
 
 # Numlockx
 exec --no-startup-id "numlockx"
 
-# Keyboard in spanish
+# Keyboard
 exec --no-startup-id "setxkbmap -layout us -variant intl"
+
+# Xsettingsd
+exec --no-startup-id "xsettingsd" 
 
 # Polybar
 exec --no-startup-id "bash $HOME/.config/polybar/launch.sh"
@@ -248,14 +251,8 @@ exec --no-startup-id "bash $HOME/.config/polybar/launch.sh"
 # Parcellite
 exec --no-startup-id "parcellite"
 
-# Randr
-exec --no-startup-id "bash $HOME/.local/bin/randr-monitors"
-
-# Mount SSHFS
-exec --no-startup-id "bash $HOME/.local/bin/automounter-sshfs"
-
 # Emacs daemon
-exec --no-startup-id "emacs --daemon"
+#exec --no-startup-id "emacs --daemon"
 
 # Wallpapers
 exec --no-startup-id "bash /home/yukiteru/.local/bin/randWallpaper.sh" 

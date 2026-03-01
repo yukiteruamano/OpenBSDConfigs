@@ -1,0 +1,58 @@
+! $OpenBSD: Xresources.in,v 1.4 2022/11/07 17:12:06 matthieu Exp $
+!
+!
+!
+!
+!
+
+xlogin*login.translations: #override \
+	<Key>F1: set-session-argument(failsafe) finish-field()\n\
+	<Key>Left: move-backward-character()\n\
+	<Key>Right: move-forward-character()\n\
+	<Key>Home: move-to-begining()\n\
+	<Key>End: move-to-end()\n\
+	Ctrl<Key>KP_Enter: set-session-argument(failsafe) finish-field()\n\
+	<Key>KP_Enter: set-session-argument() finish-field()\n\
+	Ctrl<Key>Return: set-session-argument(failsafe) finish-field()\n\
+	<Key>Return: set-session-argument() finish-field()
+
+xlogin*greeting: Welcome Master!
+xlogin*namePrompt: Login:
+xlogin*fail: Login incorrect or forbidden
+
+xlogin*greetFace:       Spleen-22:bold:italic:dpi=96
+xlogin*face:            Spleen-16:dpi=96
+xlogin*promptFace:      Spleen-16:bold:dpi=96
+xlogin*failFace:        Spleen-16:bold:dpi=96
+
+xlogin*borderWidth: 1
+xlogin*frameWidth: 2
+xlogin*innerFramesWidth: 0
+xlogin.Login.sepWidth: 0
+
+! top/left border
+xlogin*hiColor: #190E27
+
+! bottom/right border
+xlogin*shdColor: #190E27
+
+! 'Welcome to..' text color
+xlogin*greetColor: #5E4C7B
+xlogin*background: #000000
+xlogin*inpColor: #5E4C7B
+xlogin*failColor: #A45DB7
+
+! 'Login:' and 'Password:'
+*Foreground: #BFC0BF
+*inpColor: #5E4C7B
+
+! border/shadow
+*Background: #000000
+
+xlogin*logoFileName: /etc/X11/xenodm/pixmaps/OpenBSD_15bpp.xpm
+
+xlogin*useShape: true
+xlogin*logoPadding: 10
+
+! uncomment to disable logins
+! xlogin.Login.allowRootLogin:	false

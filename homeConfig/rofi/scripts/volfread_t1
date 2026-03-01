@@ -23,8 +23,9 @@ reboot='󰤁 Reboot'
 lock='󱅞  Lock'
 logout='󰍃 Logout'
 novpn='  No VPN'
-vpnwork='  VPN Work'
-wireguard='  Wireguard Personal'
+vpn='  Wireguard VPN'
+priv_on=' Privacy ON'
+priv_off=' Privacy OFF'
 yes='  Yes'
 no='  No'
 
@@ -56,7 +57,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$logout\n$reboot\n$shutdown\n$novpn\n$vpnwork\n$wireguard" | rofi_cmd
+	echo -e "$lock\n$logout\n$reboot\n$shutdown\n$novpn\n$vpn\n$priv_on\n$priv_off" | rofi_cmd
 }
 
 # Execute Command
@@ -81,14 +82,17 @@ case ${chosen} in
     $shutdown)
 		run_cmd --shutdown
         ;;
-    $vpnwork)
-		doas /usr/local/bin/vpn-control-connection work
-        ;;
-    $wireguard)
-		doas /usr/local/bin/vpn-control-connection personal
+    $vpn)
+		doas /usr/local/bin/wireguard-control-openbsd on
         ;;
     $novpn)
-		doas /usr/local/bin/vpn-control-connection novpn
+		doas /usr/local/bin/wireguard-control-openbsd off
+        ;;
+    $priv_off)
+		doas /usr/local/bin/stream-mode-control enable
+        ;;
+    $priv_on)
+		doas /usr/local/bin/stream-mode-control disable
         ;;
     $reboot)
 		run_cmd --reboot

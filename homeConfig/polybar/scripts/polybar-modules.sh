@@ -49,15 +49,11 @@ function network {
 
 function vpn {
 
-	# OpenVPN
-	CHECK_VPN="$(pgrep -fl openvpn | head -n 1| cut -d "/" -f 8 | cut -d "-" -f 1 )"
-        CHECK_WG="$(route get default |  sed -n 's/.*gateway: //p')"
+	CHECK_WG=$(netstat -rnf inet | awk '$1 == "default" {print $2}')
 
 	# Change connections color
-	if [[ $CHECK_WG == "10.7.0.2" ]]; then
+	if [[ $CHECK_WG == "10.70.46.51" ]]; then
 		echo -n "VPN:%{T2}${_vpn[0]}%{F-}%{T-}"
-	elif [[ $CHECK_VPN == "bit2me" ]]; then
-		echo -n "VPN:%{T2}${_vpn[1]}%{F-}%{T-}"
 	else
 		echo -n "VPN:%{T2}${_vpn[2]}%{F-}%{T-}"
 	fi
@@ -97,6 +93,16 @@ function volume {
 	echo -n "$_v%"
 }
 
+function privacy {
+	mode=$(sysctl -n kern.audio.record 2>/dev/null)
+
+	if [ "$mode" = "0" ]; then
+		echo -n " ON"
+	else
+		echo -n " OFF"
+	fi
+}
+
 case $1 in
 	"battery") battery;;
 	"datetime") datetime;;
@@ -106,6 +112,7 @@ case $1 in
 	"memory") memory;;
 	"sensor") sensor;;
 	"volume") volume;;
+	"privacy") privacy;;
 	*)
 		echo "You forgot to tell me what to do!"
 		exit 1

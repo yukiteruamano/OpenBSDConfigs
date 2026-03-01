@@ -2,7 +2,7 @@
 #
 # sh/ksh initialization
 
-PATH=$HOME/.golang/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.config/emacs/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
+PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin
 export PATH HOME TERM
 
 # Personal configs
@@ -12,17 +12,15 @@ PAGER='less';                                       		export PAGER
 
 # Personal exports
 QT_QPA_PLATFORMTHEME='qt5ct';                       		export QT_QPA_PLATFORMTHEME
-XDG_RUNTIME_DIR='$HOME/.local/run/yukiteru';			export XDG_RUNTIME_DIR
-AUDIODEVICE='snd/0';						export AUDIODEVICE
-AUDIOPLAYDEVICE='snd/0';					export AUDIOPLAYDEVICE
-AUDIORECDEVICE='snd/0';						export AUDIORECDEVICE
+XDG_RUNTIME_DIR='/tmp/run/user/1000';				export XDG_RUNTIME_DIR
+AUDIODEVICE='snd/1';						export AUDIODEVICE
+AUDIOPLAYDEVICE='snd/1';					export AUDIOPLAYDEVICE
+AUDIORECDEVICE='snd/1';						export AUDIORECDEVICE
 GOPATH='/home/yukiteru/.golang';				export GOPATH
 PARALLEL_BUILD='YES';						export PARALLEL_BUILD
 MAKE_JOBS=4;							export MAKE_JOBS
 RUST_SRC_PATH='/usr/local/lib/rustlib/src/rust/library';	export RUST_SRC_PATH
 CVSROOT='anoncvs@anoncvs.spacehopper.org:/cvs';			export CVSROOT
-PIPENV_VENV_IN_PROJECT=1; 					export PIPENV_VENV_IN_PROJECT
-RESTIC_REPOSITORY='/mnt/Backups';				export RESTIC_REPOSITORY
 MOZ_ACCELERATED=1;						export MOZ_ACCELERATED
 MOZ_WEBRENDER=1;						export MOZ_WEBRENDER
 
