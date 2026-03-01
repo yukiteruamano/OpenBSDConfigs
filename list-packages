@@ -3,11 +3,14 @@ anacron--
 anonymous-pro--
 arc-icon-theme--
 arc-theme-solid--
+asciidoctor--
 aspell--
 aspell-es--
 audacity--
 autoconf--%2.72
 automake--%1.18
+bear--
+btop--
 cascadia-code--
 chromium--
 clamav--
@@ -15,6 +18,7 @@ clang-tools-extra--
 cmake--
 cmixer--
 coreutils--
+curseradio--
 dina-fonts--
 direnv--
 dunst--
@@ -64,13 +68,16 @@ i3status--
 ibm-plex--
 inconsolata-font--
 ja-sazanami-ttf--
+jq--
 jupyter-notebook--
 keychain--
 lame--
 libreoffice--
 libreoffice-i18n-es--
+libvterm--
 links--
 lldb--%20
+luacheck--
 lxappearance--
 lynis--
 mediainfo--
@@ -93,6 +100,7 @@ noto-nerd-fonts--
 ntfs_3g--
 numlockx--
 p7zip--
+p7zip-rar--
 pandoc--
 paper-gtk-theme--
 paper-icon-theme--
@@ -100,7 +108,10 @@ papirus-icon-theme--
 parcellite--
 picard--
 picom--
+pinentry-qt6--
 polybar--
+poppler--
+poppler-utils--
 portslist--
 powerline-fonts--
 ppsspp--
@@ -109,6 +120,7 @@ py3-isort--
 py3-nose--
 py3-pip--
 py3-virtualenv--
+py3-yamllint--
 pyflakes--
 pylint3--
 qt6ct--
@@ -120,7 +132,9 @@ roboto-fonts--
 rofi--
 rsync--
 rtorrent--
+ruff--
 rust--
+rust-analyzer--
 rust-clippy--
 rust-gdb--
 rust-rustfmt--
@@ -131,6 +145,7 @@ shellcheck--
 shfmt--
 simple-mtpfs--
 spleen--
+sqlite3--
 sshfs-fuse--
 tdesktop--
 terminus-font--
@@ -140,6 +155,7 @@ thunar-archive--
 thunar-media-tags--
 thunderbird--
 thunderbird-i18n-es-ES--
+tidy--
 tigervnc--
 tree-sitter--
 tumbler--
@@ -169,4 +185,5 @@ zathura-cb--
 zathura-pdf-mupdf--
 zathura-ps--
 zeal--
+zip--
 zsh--
