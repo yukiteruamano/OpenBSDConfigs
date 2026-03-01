@@ -20,7 +20,7 @@ setenv EDITOR   'nvim'
 setenv PAGER    'less'
 
 # Personal exports
-setenv QT_QPA_PLATFORMTHEME 'qt5ct'
+setenv QT_QPA_PLATFORMTHEME 'qt6ct'
 setenv XDG_RUNTIME_DIR '/tmp/run/user/1000'
 setenv AUDIODEVICE 'snd/1'
 setenv AUDIOPLAYDEVICE 'snd/1'
@@ -32,6 +32,10 @@ setenv RUST_SRC_PATH '/usr/local/lib/rustlib/src/rust/library'
 setenv CVSROOT 'anoncvs@anoncvs.spacehopper.org:/cvs'
 setenv MOZ_ACCELERATED 1
 setenv MOZ_WEBRENDER 1
+setenv XCURSOR_SIZE 16
+setenv FREETYPE_PROPERTIES "cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0"
+setenv XKB_DEFAULT_LAYOUT "us"
+setenv XKB_DEFAULT_VARIANT "intl"
 
 # Language setting for user
 setenv LANG 'es_ES.UTF-8'

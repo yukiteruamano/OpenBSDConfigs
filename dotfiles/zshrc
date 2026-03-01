@@ -104,13 +104,17 @@ export CHARSET="UTF-8"
 # Exports personales
 export EDITOR="nvim" 
 export PAGER="less" 
-export QT_QPA_PLATFORMTHEME="qt5ct" 
+export QT_QPA_PLATFORMTHEME="qt6ct" 
 export XDG_RUNTIME_DIR="/tmp/run/user/1000"
 export MOZ_ACCELERATED=1
 export MOZ_WEBRENDER=1
+export XCURSOR_SIZE=16
+export FREETYPE_PROPERTIES="cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0"
+export XKB_DEFAULT_LAYOUT="us"
+export XKB_DEFAULT_VARIANT="intl"
 
 # GPG
-export GPG_TTY=`tty`
+export GPG_TTY=$(tty)
 
 # Audio 
 export AUDIODEVICE=snd/1
