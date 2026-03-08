@@ -27,6 +27,7 @@ XCURSOR_SIZE=16														export XCURSOR_SIZE
 FREETYPE_PROPERTIES='cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0'		export FREETYPE_PROPERTIES
 XKB_DEFAULT_LAYOUT='us'												export XKB_DEFAULT_LAYOUT
 XKB_DEFAULT_VARIANT='intl'												export XKB_DEFAULT_VARIANT
+XDG_CURRENT_DESKTOP='bspwm'											export XDG_CURRENT_DESKTOP
 
 # Language setting for user
 LANG='es_ES.UTF-8';			export LANG

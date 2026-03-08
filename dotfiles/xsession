@@ -20,6 +20,7 @@ export FREETYPE_PROPERTIES="cff:no-stem-darkening=0.0 autofitter:no-stem-darkeni
 export XKB_DEFAULT_LAYOUT="us"
 export XKB_DEFAULT_VARIANT="intl"
 export GPG_TTY=$(tty)
+export XDG_CURRENT_DESKTOP='bspwm'
 
 # Dbus session
 if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
@@ -27,4 +28,5 @@ if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
 fi
 
 # Init i3 session
-exec /usr/local/bin/ck-launch-session /usr/local/bin/i3
+#exec /usr/local/bin/ck-launch-session /usr/local/bin/i3
+exec /usr/local/bin/ck-launch-session /usr/local/bin/bspwm

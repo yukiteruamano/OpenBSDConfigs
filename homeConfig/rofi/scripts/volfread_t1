@@ -14,8 +14,8 @@ dir="$HOME/.config/rofi/powermenu/type-1"
 theme='style-2'
 
 # CMDs
-uptime="`w | head -n 1 | sed -e 's/up //g' | sed -e 's/,//g' | cut -d " " -f 5`"
-host=`hostname`
+uptime=$(uptime | sed -e 's/.*up \(.*\), [0-9]* user.*/\1/' | xargs)
+host=$(hostname)
 
 # Options
 shutdown='󰐥 Shutdown'
@@ -69,7 +69,11 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			shutdown -r now
 		elif [[ $1 == '--logout' ]]; then
-			i3-msg exit
+			if pgrep -x bspwm > /dev/null; then
+			        bspc quit
+			elif pgrep -x i3 > /dev/null; then
+				i3-msg exit
+			fi
 		fi
 	else
 		exit 0
