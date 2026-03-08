@@ -179,10 +179,10 @@ bindsym $mod+Control+l exec "i3lock -t -i $HOME/.lock.png --color=000000"
 bindsym $mod+u [urgent=latest] focus
 
 # Reload the configuration file.
-bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e reload
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
-bindsym $mod+Shift+e restart
+bindsym $mod+Shift+r restart
 
 # Exit i3 (logs you out of your X session).
 bindsym $mod+Shift+Escape exec "bash $HOME/.config/rofi/scripts/volfread_t1"
@@ -224,35 +224,5 @@ client.background        $base
 
 ## Autostart applicatons ##
 
-# Picom
-exec --no-startup-id "picom --config $HOME/.config/picom/config"
-
-# MPD Music
-exec --no-startup-id "mpd $HOME/.config/mpd/mpd.conf"
-
-# Unclutter
-exec --no-startup-id "unclutter -root"
-
-# Dunst notification
-exec --no-startup-id "dunst -conf $HOME/.config/dunst/dunstrc"
-
-# Numlockx
-exec --no-startup-id "numlockx"
-
-# Keyboard
-exec --no-startup-id "setxkbmap -layout us -variant intl"
-
-# Xsettingsd
-exec --no-startup-id "xsettingsd" 
-
-# Polybar
-exec --no-startup-id "bash $HOME/.config/polybar/launch.sh"
-
-# Parcellite
-exec --no-startup-id "parcellite"
-
-# Emacs daemon
-#exec --no-startup-id "emacs --daemon"
-
-# Wallpapers
-exec --no-startup-id "bash /home/yukiteru/.local/bin/randWallpaper.sh" 
+# Ejecutar el script de autostart centralizado
+exec_always --no-startup-id $HOME/.config/i3/autostart.sh

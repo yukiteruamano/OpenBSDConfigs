@@ -3,11 +3,10 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "José Maldonado"
-      user-mail-address "josemald89@gmail.com")
+(setq user-full-name "Jose Maldonado"
+       user-mail-address "yukiteruamano@volfread.xyz")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -15,24 +14,23 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "FiraMono Nerd Font Mono" :size 11 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "FiraMono Nerd Font Mono" :size 11))
-;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
+(setq doom-font (font-spec :family "Fira Mono" :size 11 :weight 'regular)
+    doom-variable-pitch-font (font-spec :family "Fira Mono" :size 12))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-one)
+(setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -42,24 +40,24 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
-;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
+;; `with-eval-after-load' block, otherwise Doom's defaults may override your
+;; settings. E.g.
 ;;
-;;   (after! PACKAGE
+;;   (with-eval-after-load 'PACKAGE
 ;;     (setq x y))
 ;;
 ;; The exceptions to this rule:
 ;;
 ;;   - Setting file/directory variables (like `org-directory')
 ;;   - Setting variables which explicitly tell you to set them before their
-;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
+;;     package is loaded (see 'C-h v VARIABLE' to look them up).
 ;;   - Setting doom variables (which start with 'doom-' or '+').
 ;;
 ;; Here are some additional functions/macros that will help you configure Doom.
 ;;
 ;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
 ;; - `add-load-path!' for adding directories to the `load-path', relative to
 ;;   this file. Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
@@ -80,7 +78,7 @@
 
 (after! flycheck
   ;; Flycheck for Clang
-  (setq-default flycheck-c/c++-clang-executable "/usr/local/bin/clang-16")
+  (setq-default flycheck-c/c++-clang-executable "/usr/local/bin/clang-21")
 )
 
 ;; =========================================================================
@@ -125,30 +123,16 @@
       (c-set-offset 'inclass 8)
       (c-set-offset 'knr-argdecl-intro 8))
 
-;; =========================================================================
-;; LSP Mode config
-;; =========================================================================
-
-(after! lsp-mode
-  (setq lsp-log-io nil) 
-  (setq lsp-print-performance t)
-  ;; auto detect workspace and start lang server
-  (setq lsp-auto-guess-root t) 
-  ;; display all of the info returned by document/onHover on bottom, only the symbol if nil.
-  (setq lsp-eldoc-render-all t)) 
-
-;; LSP MODE
-;; Clangd LSP
-(after! lsp-clangd
-  (setq lsp-clangd-binary-path "/usr/local/bin/clangd")
-  (setq lsp-clients-clangd-args
-        '("-j=4"
-          "--background-index"
-          "--clang-tidy"
-          "--completion-style=detailed"
-          "--header-insertion=never"
-          "--header-insertion-decorators=0"))
-  (set-lsp-priority! 'clangd 2))
+(with-eval-after-load 'cc-mode
+  (set-eglot-client! 'cc-mode '("clangd" 
+				"-j=4"
+				"--background-index"
+				"-clang-tidy"
+				"--all-scopes-completion"
+				"--completion-style=detailed"
+				"--header-insertion=iwyu"
+				"--header-insertion-decorators=0"
+				)))
 
 ;; =========================================================================
 ;; Python
@@ -159,10 +143,6 @@
 (setq flycheck-python-pycompile-executable "/usr/local/bin/python3")
 (setq python-shell-exec-path "/usr/local/bin/python3")
 
-;; Python MS Stubs (Sync for Git)
-(setq lsp-pyright-use-library-code-for-types t) 
-(setq lsp-pyright-stub-path (concat (getenv "HOME") "/DEVEL/python-type-stubs/stubs"))
-
 ;; Config for ipython and jupyter
 (setq +python-ipython-repl-args '("-i" "--simple-prompt" "--no-color-info"))
 (setq +python-jupyter-repl-args '("--simple-prompt"))
@@ -170,6 +150,16 @@
 ;; DAP mode for python
 (after! dap-mode
   (setq dap-python-debugger 'debugpy))
+
+;; Ty LSP
+(with-eval-after-load 'python
+  (set-eglot-client! '(python-mode python-ts-mode) '("ty" "server")))
+
+(with-eval-after-load 'python
+  (set-lsp-priority! 'ty-ls -5))
+
+(with-eval-after-load 'python
+  (set-formatter! 'ruff :modes '(python-mode python-ts-mode)))
 
 ;; =========================================================================
 ;; Magit config
@@ -252,10 +242,8 @@
 ;; xterm mouse support
 (setq xterm-mouse-mode 1)
 
-;; =========================================================================
-;; Keymap
-;; =========================================================================
+;; Eglot
+(after! eglot
+  (setq eglot-watch-files-outside-project-root nil))
 
-;; Pipenv 
-(global-set-key (kbd "C-c P a") 'pipenv-activate)
-(global-set-key (kbd "C-c P d") 'pipenv-deactivate)
+

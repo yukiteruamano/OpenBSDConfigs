@@ -69,11 +69,10 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			shutdown -r now
 		elif [[ $1 == '--logout' ]]; then
-			if pgrep -x bspwm > /dev/null; then
-			        bspc quit
-			elif pgrep -x i3 > /dev/null; then
-				i3-msg exit
-			fi
+		    case "$XDG_CURRENT_DESKTOP" in
+			bspwm) bspc quit ;;
+			i3)    i3-msg exit ;;
+		    esac
 		fi
 	else
 		exit 0
